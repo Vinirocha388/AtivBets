@@ -47,7 +47,7 @@ suspeitosRoutes.post("/", (req, res) => {
 
 
 
-  // Criação de um novo candidato
+  // Criação de um novo suspeito
   const novoSuspeito = {
     id: Math.floor(Math.random() * 1000),
     nome,
@@ -88,7 +88,7 @@ suspeitosRoutes.put("/:id", (req, res) => {
   const { id } = req.params;
  const { nome, profissao, envolvimento, nivelSuspeito } = req.body;
 
-  // Busca um candidato pelo id no array de candidatos
+  // Busca um suspeito pelo id 
   const suspeito = suspeitos.find((Indeliquente) => Indeliquente.id == id);
 
   // Verifica se o suspeito foi encontrado
@@ -124,7 +124,7 @@ suspeitosRoutes.delete("/:id", (req, res) => {
       .json({ message: `suspeito com id ${id} não encontrado!` });
   }
 
-  // Remove o candidato do array de candidatos
+  // Remove o suspeito do array de suspeitos 
   suspeitos = suspeitos.filter((suspeito) => suspeito.id != id);
 
   return res.status(200).json({
